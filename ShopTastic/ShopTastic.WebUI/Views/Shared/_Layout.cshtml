@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ShopTastic</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Shop Tastic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav mr-auto">
+
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">@Html.ActionLink("Products", "Index", "ProductManager", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Categories", "Index", "ProductCategoryManager", null, new { @class = "nav-link" })</li>
+                    }
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Help", "Help", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("About Us", "About", "Home", null, new { @class = "nav-link" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+                @{
+                    Html.RenderAction("BasketSummary", "Basket");
+                }
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <!-- Start Footer  -->
+        <footer>
+            <div class="footer-main">
+                <div class="container bg-light" style="padding: 20px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-link-contact">
+                                <h4>Contact Us</h4>
+                                <ul>
+                                    <li>
+                                        <p><i class="fas fa-map-marker-alt"></i> Sveavägen 44 <br>172 85 Stockholm<br> Sweden </p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+46(0)76 722 63 36">+46(0)76 722 63 36</a></p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fas fa-envelope"></i>Email: <a href="info@shoptastic.se">info@shoptastic.se</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-top-box">
+                                <h3>Business Time</h3>
+                                <ul class="list-time">
+                                    <li>Monday - Friday: 08.00am to 08.00pm</li>
+                                    <li>Saturday: 10.00am to 06.00pm</li>
+                                    <li>Sunday: 10.00am to 04.00pm</li>
+                                </ul>
+
+                                <h3>Social Media</h3>
+                                
+                                <ul>
+                                    <a href="#"><i class="fab fa-facebook"  aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>                                    
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer-top-box">
+                                <h3>Find Us</h3>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.7511986619154!2d18.06019421607266!3d59.33710758166157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d67973cafa5%3A0xec4f8d8d41ee0d2f!2sSveav%C3%A4gen%2044%2C%20111%2034%20Stockholm!5e0!3m2!1sen!2sse!4v1598518667597!5m2!1sen!2sse" 
+                                        width="350" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Shop Tastic</p>
+        </footer>
+        <!-- End Footer  -->
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

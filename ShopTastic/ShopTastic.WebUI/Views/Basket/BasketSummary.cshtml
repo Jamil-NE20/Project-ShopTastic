@@ -1,0 +1,9 @@
+﻿@model ShopTastic.Core.ViewModels.BasketSummaryViewModel
+
+<ul class="nav navbar-nav navbar-right">
+
+    <li><a href="@Url.Action("Index", "Basket")" class="btn btn-default bg-light">@Model.BasketCount Cart </a></li>
+
+    <li><a href="@Url.Action("Index", "Basket")" class="btn btn-default bg-light">@String.Format("{0:c}", Model.BasketTotal)</a></li>
+    
+</ul>

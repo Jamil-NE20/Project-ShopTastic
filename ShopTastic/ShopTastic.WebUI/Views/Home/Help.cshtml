@@ -1,0 +1,95 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    @Styles.Render("~/Content/Style.css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="col">
+
+        <div class="container centerAlign">
+
+            <div class="text-center">
+                <div>
+                    <h5><i class="fa fa-building-o" aria-hidden="true"></i> Do you have any queries?</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="container bg-info">
+        <div class="col">
+            <div class="contactForm">
+                <form class="container" action="bookingConfirmation.html">
+                    <div class="col-auto">
+                        <div class="form-row">
+                            <div class=" form-group col-md-6 mb-3">
+                                <label>First name</label>
+                                <input type="text" class="form-control" placeholder="First name" required>
+                            </div>
+                            <div class=" form-group col-md-6 mb-3">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" placeholder="Last name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-3">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                            </div>
+                            <div class=" form-group col-md-6 mb-3">
+                                <label>Phone Number</label>
+                                <input type="Number" class="form-control" placeholder="Phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Queries Releted to</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Queries Releted to</option>
+                                <option>Invoice</option>
+                                <option>Return</option>
+                                <option>Shipping</option>
+                                <option>Damage</option>
+                            </select>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+
+                            <label class="form-check-label" for="defaultCheck1">
+                                I accept terms and condition.
+                            </label>
+                        </div>
+                        <br />
+
+                        <div class="text-center">
+                            <div>
+                                <button type="submit" name="submit" value="Send" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script>
+    $(".btn").click(function(){
+    alert("Thanks for your message");
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@{
+        ViewBag.Title = "Thank You";
+    }
+        
+    <div class="container bg-light" style="padding: 50px;">
+        <h2>Choose payment Method</h2>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Swish" class="btn btn-default bg-primary" />
+                    <input type="submit" value="Paypal" class="btn btn-default bg-primary" />
+                    <input type="submit" value="Klarna" class="btn btn-default bg-primary" />
+                    <input type="submit" value="VISA" class="btn btn-default bg-primary" />
+                </div>
+
+            </div>
+        </div>
+        <h2>Thank you</h2>
+        Thank you for your order.
+        <br />
+        <br />
+        Your Order Id = @ViewBag.OrderId
+        
+    </div>
+
+
+
+
+
+
